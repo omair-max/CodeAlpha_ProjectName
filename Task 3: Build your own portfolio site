@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saif Khan Portfolio</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+    body { font-family: Arial, sans-serif; background:#0f172a; color:#fff; }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(0,0,0,0.7);
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+
+    header a {
+      color:#fff;
+      margin:0 10px;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    header a:hover { color:#38bdf8; }
+
+    section {
+      padding:100px 20px;
+      min-height:100vh;
+    }
+
+    .hero {
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+    }
+
+    .hero h1 { font-size:3rem; }
+    .hero p { margin-top:10px; }
+
+    .btn {
+      margin-top:20px;
+      padding:10px 20px;
+      background:#38bdf8;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .btn:hover { transform:scale(1.1); }
+
+    .projects {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .card {
+      background:#1e293b;
+      padding:20px;
+      border-radius:10px;
+      transition:0.3s;
+    }
+
+    .card:hover { transform: translateY(-10px); }
+
+    .skills span {
+      display:inline-block;
+      margin:5px;
+      padding:8px 12px;
+      background:#334155;
+      border-radius:5px;
+    }
+
+    footer {
+      text-align:center;
+      padding:20px;
+      background:#020617;
+    }
+
+    @media(max-width:600px){
+      .hero h1 { font-size:2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>Saif Khan</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <h1>Hello, I'm Saif Khan</h1>
+  <p>Web Developer | CSE Student | Future Builder</p>
+  <button class="btn" onclick="scrollToSection('projects')">View Work</button>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>I am a Computer Science student passionate about web development, UI design, and building scalable digital solutions.</p>
+
+  <h3>Skills</h3>
+  <div class="skills">
+    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="card">Image Gallery</div>
+    <div class="card">Calculator App</div>
+    <div class="card">Portfolio Website</div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>Email: saif@example.com</p>
+  <p>Instagram: @thebillionairelifey</p>
+</section>
+
+<footer>
+  <p>© 2026 Omair Khan</p>
+</footer>
+
+<script>
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Simple reveal animation
+  const sections = document.querySelectorAll('section');
+  window.addEventListener('scroll', () => {
+    sections.forEach(sec => {
+      const top = window.scrollY;
+      const offset = sec.offsetTop - 400;
+      if(top > offset){
+        sec.style.opacity = 1;
+        sec.style.transform = 'translateY(0)';
+      }
+    });
+  });
+
+  sections.forEach(sec => {
+    sec.style.opacity = 0;
+    sec.style.transform = 'translateY(50px)';
+    sec.style.transition = '0.6s ease';
+  });
+</script>
+
+</body>
+</html>
